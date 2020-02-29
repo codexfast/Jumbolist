@@ -1,6 +1,7 @@
 # Lista de Jumbos
 ### Descrição
 Ajudar na listagem de alimentos e materiais permitidos aos internos(as)
+
 ### Funcões da plataforma
 - Distribuir listas de alimentos e materiais de acordo com unidade prisional
 - Permitir upload de listas no formato (pdf, jpg, png) e relacionados
@@ -11,6 +12,6 @@ Ajudar na listagem de alimentos e materiais permitidos aos internos(as)
 - Receber doações via mercado pago
 
 ### Observações
-Publicidade
-Rota para iframe
-Rota sobre
+- Ter publicidade
+- Rota para iframe (será incorporado em uma página existente)
+- Ter rota sobre
