@@ -7,7 +7,10 @@ Ajudar na listagem de alimentos e materiais permitidos aos internos(as)
 - Gerenciar listas no painel admin
 - Gerenciar listas comunitárias (aceitar ou não)
 - Notificação via e-mail para usuarios que permitirem recebimento de atualizaçoes das listas interessadas
+- Notificação via sms para usuarios que permitirem recebimento de atualizaçoes das listas interessadas
+- Receber doações via mercado pago
 
 ### Observações
+Publicidade
 Rota para iframe
-   
+Rota sobre
