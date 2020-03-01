@@ -18,6 +18,11 @@ class LoginController extends Controller
     public function check(Request $request)
     {
 
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $email = $request->input('email');
         $password = $request->input('password');
 
@@ -27,12 +32,11 @@ class LoginController extends Controller
         {
             if (Hash::check($password, $admin->password))
             {
-                
                 $request->session()->put('admin_on', true);
                 return redirect('/admin');
-            } else {
-                return view('login', ['loginerr' => 'E-mail ou senha incorretos']);
             }
         }
+
+        return view('login', ['loginerr' => 'E-mail ou senha incorretos']);
     }
 }

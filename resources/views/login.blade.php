@@ -1,36 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Platform for Jombolist" />
+        <meta name="author" content="Rafael" />
+        <title>Login - Jumbolist</title>
+      
+        @include('partials.sb-head')
 
-    @include('partials.bootstrap-cdn-css')
-
-    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
-</head>
-<body>
-    <form class="form-signin" method="POST">
-        @csrf
-        <center>
-            <img class="mb-4" src="{{ asset('assets/img/user.png') }}" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Área de Login</h1>
-        </center>
-        @if (isset($loginerr))
-
-            <div class="alert alert-danger">
-                {{$loginerr}}        
+    </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content" style="background-color:#2b2b2b;">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-body">
+                                      @if ($errors->any())
+                                      <div class="alert alert-danger">
+                                          <ul>
+                                              @foreach ($errors->all() as $error)
+                                                  <li>{{ $error }}</li>
+                                              @endforeach
+                                          </ul>
+                                      </div>
+                                      @endif
+                                      @if (isset($loginerr))
+                              
+                                          <div class="alert alert-danger">
+                                              {{$loginerr}}        
+                                          </div>
+                              
+                                      @endif
+                                        <form method="post">
+                                          @csrf
+                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" name="email" required/></div>
+                                            <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" name="password" required/></div>
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><button class="btn btn-primary" type="submit">Login</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </div>
 
-        @endif
-        <label for="inputEmail" class="sr-only">E-mail</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus name="email">
-        
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required name="password">
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-    </form>
-    @include('partials.bootstrap-cdn-js')
-</body>
+        </div>
+        @include('partials.sb-js')
+    </body>
 </html>
