@@ -46,8 +46,8 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logado em:</div>
-                        Jumbolist
+                        <div class="small">Logado como:</div>
+                        {{$admin->name}}
                     </div>
                 </nav>
             </div>
