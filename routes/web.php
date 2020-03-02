@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Redirect;
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/settings', 'AdminController@settings');
+    Route::put('/admin/password', 'AdminController@password');
+    Route::put('/admin/profile', 'AdminController@profile');
 
     Route::delete('/admin/donate/{id}', 'DonateController@delete')->where(['id' => '[0-9]+']);
     Route::post('/admin/donate', 'DonateController@create');
@@ -28,8 +30,9 @@ Route::middleware(['admin'])->group(function () {
     });
 });
 
-Route::get('/', 'HomeController@index');
-
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@check');
+
+Route::get('/', 'HomeController@index');
+Route::get('/thanks', 'HomeController@thanks');
 
