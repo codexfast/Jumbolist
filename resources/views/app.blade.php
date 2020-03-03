@@ -12,6 +12,9 @@
         @include('partials.sb-head')
         @include('partials.sb-datatable-css')
 
+        <script>
+            let states_cities = <?= isset($states_cities) ? $states_cities : 'null' ?>;
+        </script>
     </head>
     <body class="sb-nav-fixed">
 
@@ -43,6 +46,7 @@
                                 ><div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                                 Settings</a
                             >
+                            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -94,6 +98,6 @@
 
         @include('partials.sb-js')
         @include('partials.sb-datatable-js')
-
     </body>
+
 </html>

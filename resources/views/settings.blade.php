@@ -160,5 +160,9 @@
             </div>
         </div>        
     </div>
+    <div class="col">
+        <a class="btn btn-danger" href="{{url('/update/states-cities')}}"
+            ><div class="sb-nav-link-icon"><i class="fas fa-retweet"></i></div>Atualizar Cidades e Estados </a>
+    </div>
 </div>
 @endsection
