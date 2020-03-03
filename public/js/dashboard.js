@@ -11,8 +11,8 @@ window.onload = () => {
 
         if (state.length === 1)
         {
+            $('#selectCity').empty();
             state[0].cidades.map((city, index) => {
-                $('#selectCity').empty();
                 $('#selectCity').append(new Option(city, index))
             });
         }
