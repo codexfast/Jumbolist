@@ -13,6 +13,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', 'AdminController@index');
@@ -27,6 +28,21 @@ Route::middleware(['admin'])->group(function () {
         $request->session()->forget('admin_on');
         
         return redirect('/admin');
+    });
+
+    Route::get('/update/states-cities', function (Request $resource) {
+
+        try {
+            
+            $resource = file_get_contents('https://gist.githubusercontent.com/letanure/3012978/raw/2e43be5f86eef95b915c1c804ccc86dc9790a50a/estados-cidades.json');
+    
+            Storage::put('estados-cidades.json', $resource);
+    
+            return redirect('/admin/settings')->with('success', 'Estados e cidades atualizados');
+        } catch (\Throwable $th) {
+            return redirect('/admin/settings')->with('danger', 'Não foi possivel atualizar cidades e estados');
+
+        }
     });
 });
 
