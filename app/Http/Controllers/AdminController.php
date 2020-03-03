@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Monolog\Formatter\JsonFormatter;
 use App\Donate;
 use App\Admin;
 
@@ -22,10 +23,11 @@ class AdminController extends Controller
     }
 
     public function index(Request $request)
-    {
+    {   
+         
         return view('dashboard', [
-            'admin' => Admin::first()
-
+            'admin' => Admin::first(),
+            'states_cities' => Storage::get('estados-cidades.json')
         ]);
     }
 
