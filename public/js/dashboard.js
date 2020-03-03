@@ -1,5 +1,4 @@
-(function () {
-    
+window.onload = () => {
     states_cities.estados.map(state => {
         $('#selectState').append(new Option(state.nome, state.sigla))
     });
@@ -18,4 +17,4 @@
             });
         }
     });
-})();
+}
