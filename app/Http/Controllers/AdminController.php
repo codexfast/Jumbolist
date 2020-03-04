@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Monolog\Formatter\JsonFormatter;
 use App\Donate;
 use App\Admin;
+use App\Unit;
 
 
 class AdminController extends Controller
@@ -24,10 +24,17 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {   
+
+        $units = Unit::where('pendent', false)->get();
+        $units_pendent = Unit::where('pendent', true)->get();
          
         return view('dashboard', [
             'admin' => Admin::first(),
-            'states_cities' => Storage::get('estados-cidades.json')
+            'states_cities' => Storage::get('estados-cidades.json'),
+            'units' => $units,
+            'units_length' => count($units),
+            'request_length' => count($units_pendent),
+            'units_pendent' => $units_pendent
         ]);
     }
 

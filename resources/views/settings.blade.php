@@ -72,7 +72,7 @@
             <div class="card-body">
                 <div class="alert alert-secondary" role="alert">
                     <h4 class="alert-heading">Simples explicação</h4>
-                    <p>Para obter o link de pagamento entre em <a href="https://www.mercadopago.com.br/tools/create">Mercado Pago Tool Create</a> logado com sua conta que ira receber o pagamento.</p>
+                    <p>Para obter o link de pagamento entre em <a href="https://www.mercadopago.com.br/tools/create" target="_blank">Mercado Pago Tool Create</a> logado com sua conta que ira receber o pagamento.</p>
                     <hr>
                     <p class="mb-0">Ao entrar preencher os campos obrigatórios, o seguinte é abrir a seção <strong>Mais opções</strong> e preenchê-los com os dados abaixo  </p>
                 </div>

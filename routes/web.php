@@ -24,13 +24,17 @@ Route::middleware(['admin'])->group(function () {
     Route::delete('/admin/donate/{id}', 'DonateController@delete')->where(['id' => '[0-9]+']);
     Route::post('/admin/donate', 'DonateController@create');
 
+    Route::post('/admin/unit', 'UnitController@admin_create');
+    Route::delete('/admin/unit', 'UnitController@delete');
+    Route::put('/admin/unit', 'UnitController@active');
+
     Route::get('/admin/logout', function (Request $request) {
         $request->session()->forget('admin_on');
         
         return redirect('/admin');
     });
 
-    Route::get('/update/states-cities', function (Request $resource) {
+    Route::get('/update/states-cities', function (Request $request) {
 
         try {
             

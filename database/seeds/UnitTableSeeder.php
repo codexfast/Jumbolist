@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Unity;
+use App\Unit;
 
-class UnityTableSeeder extends Seeder
+class UnitTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,11 +12,12 @@ class UnityTableSeeder extends Seeder
      */
     public function run()
     {
-        Unity::create([
+        Unit::create([
             'initials' => 'SP',
             'city' => 'Santa Branca',
-            'unity' => 'Unidade Qualquer',
+            'unit' => 'Unidade Qualquer',
             'list' => null,
+            'pendent' => true
         ]);
     }
 }

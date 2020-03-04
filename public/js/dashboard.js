@@ -13,8 +13,10 @@ window.onload = () => {
         {
             $('#selectCity').empty();
             state[0].cidades.map((city, index) => {
-                $('#selectCity').append(new Option(city, index))
+                $('#selectCity').append(new Option(city, city))
             });
         }
     });
+
+    $(document.querySelectorAll('#dataTable')).DataTable();
 }
