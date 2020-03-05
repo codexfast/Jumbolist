@@ -5,7 +5,7 @@
 A unidade **{{$unit}}** foi registrada na cidade {{$city}}-{{$initials}},
 cheque agora clicando no botão abaixo.
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => $url])
 Checar
 @endcomponent
 

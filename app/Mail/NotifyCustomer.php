@@ -22,12 +22,14 @@ class NotifyCustomer extends Mailable
     public $unit;
     public $city;
     public $initials;
+    public $url;
 
     public function __construct($unit, $city, $initials)
     {
         $this->unit = $unit;
         $this->city = $city;
         $this->initials = $initials;
+        $this->url = url('/buscar');
     }
 
     /**
