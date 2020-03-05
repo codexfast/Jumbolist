@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 use App\Donate;
 use App\Admin;
 use App\Unit;
-
+use App\Platform;
+use App\AboutPage;
+use App\Metrics;
 
 class AdminController extends Controller
 {
@@ -34,7 +36,9 @@ class AdminController extends Controller
             'units' => $units,
             'units_length' => count($units),
             'request_length' => count($units_pendent),
-            'units_pendent' => $units_pendent
+            'units_pendent' => $units_pendent,
+            'metric_view' => Metrics::first()->views
+
         ]);
     }
 
@@ -75,12 +79,25 @@ class AdminController extends Controller
         return redirect('/admin/settings')->with('success', 'Senha alterada');
     }
 
+    public function update_about_page(Request $request)
+    {
+        # code...
+    }
+
+    public function update_platform(Request $request)
+    {
+        # code...
+    }
+
     public function settings(Request $request)
     {
         
         return view('settings', [
             'donates' => Donate::all(),
-            'admin' => Admin::first()
+            'admin' => Admin::first(),
+            'platform' => Platform::first(),
+            'about_title' => AboutPage::first()->title,
+            'about_text' => AboutPage::first()->large_text,
         ]);
     }
 }

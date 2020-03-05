@@ -12,8 +12,8 @@
 */
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', 'AdminController@index');
@@ -55,4 +55,7 @@ Route::post('/login', 'LoginController@check');
 
 Route::get('/', 'HomeController@index');
 Route::get('/thanks', 'HomeController@thanks');
+Route::get('/buscar', 'HomeController@find');
+Route::get('/sobre', 'HomeController@about');
+Route::get('/doacoes', 'HomeController@donates');
 

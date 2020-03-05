@@ -1,6 +1,6 @@
 @extends('app');
 
-@section('title', 'Settings - Jumbolist')
+@section('title', 'Settings -')
 
 @section('content')
 
@@ -63,6 +63,80 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-address-card mr-1"></i>Pagina Sobre</div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    @csrf
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <div class="form-group">
+                        <label for="about_title">Título</label>
+                        <input type="text" class="form-control" id="about_title"  name="about_title" required value="{{$about_title}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="about_text">Texto</label>
+                        <textarea class="form-control" id="about_text" name="about_text" required>{{$about_text}}</textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>        
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-address-card mr-1"></i>Plataforma</div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    @csrf
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <div class="form-group">
+                        <label for="platform_name">Nome</label>
+                        <input type="text" class="form-control" id="platform_name"  name="platform_name" required value="{{$app_name}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="embed">Index Embed (<span class="text-danger"><strong>Youtube</strong></span>)</label>
+                        <input type="text" class="form-control" id="embed"  name="embed" required value="{{$platform->iframe_youtube}}">
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group">
+                        <label for="smtp_server">SMTP SERVER</label>
+                        <input type="text" class="form-control" id="smtp_server"  name="smtp_server" required value="{{$platform->SMTP_SERVER}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smtp_user_server">SMTP USER SERVER</label>
+                        <input type="text" class="form-control" id="smtp_user_server"  name="smtp_user_server" required value="{{$platform->SMTP_USER_SERVER}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smtp_pass_server">SMTP PASS SERVER</label>
+                        <input type="password" class="form-control" id="smtp_pass_server"  name="smtp_pass_server" required value="{{$platform->SMTP_PASS_SERVER}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smtp_port_server">SMTP PORT SERVER</label>
+                        <input type="text" class="form-control" id="smtp_port_server"  name="smtp_port_server" required value="{{$platform->SMTP_PORT_SERVER}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smtp_from">SMTP FROM</label>
+                        <input type="text" class="form-control" id="smtp_from"  name="smtp_from" required value="{{$platform->SMTP_FROM}}">
+                    </div>
+                      <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>        
     </div>
 </div>
 <div class="row">

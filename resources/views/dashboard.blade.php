@@ -9,7 +9,7 @@
     <li class="breadcrumb-item active">Dashboard</li>
 </ol>
 <div class="row">
-    <div class="col-xl-6 col-md-6">
+    <div class="col-xl-4 col-md-4">
         <div class="card bg-primary text-white mb-4">
             <div class="card-header">
                 <i class="fas fa-university"></i>
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-6 col-md-6">
+    <div class="col-xl-4 col-md-4">
         <div class="card bg-warning text-white mb-4">
             <div class="card-header">
                 <i class="fas fa-project-diagram"></i>
@@ -30,6 +30,18 @@
             <strong>{{$request_length}}</strong>
         </div>
 
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-md-4">
+        <div class="card bg-secondary text-white mb-4">
+            <div class="card-header">
+                <i class="fas fa-eye"></i>
+                Metric View</div>
+
+            <div class="card-body">
+                <strong>{{$metric_view}}</strong>
+            </div>
         </div>
     </div>
     

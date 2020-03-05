@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>@yield('title')</title>
+        <title>@yield('title') {{$app_name}}</title>
         
         @include('partials.sb-head')
         @include('partials.sb-datatable-css')
@@ -19,7 +19,7 @@
     <body class="sb-nav-fixed">
 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{url('/admin')}}">Jumbolist</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <a class="navbar-brand" href="{{url('/admin')}}">{{$app_name}}</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
@@ -44,8 +44,7 @@
                             >
                             <a class="nav-link" href="{{url('/admin/settings')}}"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
-                                Settings</a
-                            >
+                                Settings</a>
 
                             <a class="nav-link" href="{{url('')}}" target="_blank"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-rss-square"></i></div>
@@ -95,7 +94,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Jumbolist <?= date("Y"); ?></div>
+                            <div class="text-muted">Copyright &copy; {{$app_name}} <?= date("Y"); ?></div>
                         </div>
                     </div>
                 </footer>
