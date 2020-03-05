@@ -11,9 +11,11 @@
 |
 */
 
+use App\Mail\NotifyCustomer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
+
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', 'AdminController@index');
@@ -58,4 +60,11 @@ Route::get('/thanks', 'HomeController@thanks');
 Route::get('/buscar', 'HomeController@find');
 Route::get('/sobre', 'HomeController@about');
 Route::get('/doacoes', 'HomeController@donates');
+
+Route::get('/email', function (Request $resource) {
+
+    Mail::to('codexfast@gmail.com')->send(new NotifyCustomer('Penitenciária de Pimhuí', 'Pimhuí', 'MG'));
+
+    return new NotifyCustomer('Penitenciária de Pimhuí', 'Pimhuí', 'MG');
+});
 
