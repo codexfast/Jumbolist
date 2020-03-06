@@ -4,6 +4,28 @@
 
 @section('content')
 <div class="container">
+  @if (session('success'))
+
+  <div class="alert alert-success">
+      {{session('success')}}
+  </div>
+  @endif
+
+  @if (session('warning'))
+
+  <div class="alert alert-warning">
+      {{session('warning')}}
+  </div>
+  @endif
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row">
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Buscar lista</h4>
@@ -72,7 +94,8 @@
             <hr>
     
             <h4 class="mb-3">Contribuir</h4>
-          <form class="">
+          <form method="post" action="{{url('/unit')}}" enctype="multipart/form-data">
+            @csrf
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="input-group mb-3">
@@ -81,11 +104,8 @@
                       <i class="fas fa-map"></i>
                     </div>
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01" aria-label="select">
+                  <select class="custom-select" id="all_states" aria-label="select" name="state">
                     <option selected>Estado...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
                   </select>
                 </div>
               </div>
@@ -96,11 +116,9 @@
                       <i class="fas fa-map"></i>
                     </div>
                   </div>
-                  <select class="custom-select disable" id="inputGroupSelect02" aria-label="select">
+                  <select class="custom-select disable" id="all_cities" aria-label="select" name="city">
                     <option selected>Cidade...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+    
                   </select>
                 </div>
               </div>
@@ -113,7 +131,7 @@
                     <i class="fas fa-atlas"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Nome da Unidade" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Nome da Unidade" aria-label="Unit name" aria-describedby="basic-addon1" name="unit">
               </div>
             </div>
     
@@ -123,14 +141,14 @@
                   <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                 </div>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="fileList" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
                   <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                 </div>
               </div>
             </div>
     
             <div class="mb-3">
-              <button class="btn btn-block btn-dark">
+              <button class="btn btn-block btn-dark" type="submit">
                 <i class="fas fa-upload"></i>
                 Upload
               </button>

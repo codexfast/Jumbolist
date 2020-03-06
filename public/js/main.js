@@ -12,6 +12,25 @@ window.onload = () => {
   
     });
 
+    states_cities.estados.forEach( state => {
+        $('#all_states').append(new Option(state.nome, state.sigla))
+
+    });
+
+    $('#all_states').change(e => {
+        const sigla = $('#all_states').children("option:selected").val();
+        const cities = states_cities.estados.filter(states => states.sigla == sigla);
+
+
+        $('#all_cities').empty();
+
+        cities[0].cidades.forEach( city => {
+            
+            $('#all_cities').append(new Option(city, city))
+
+        });
+    });
+
     $('#inputGroupSelect01').change(e => {
         const sigla = $('#inputGroupSelect01').children("option:selected").val();
 
@@ -74,5 +93,7 @@ window.onload = () => {
         $('#results').append(ul);
 
     });
+
+
 
 }

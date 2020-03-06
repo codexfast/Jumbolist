@@ -30,6 +30,9 @@ Route::middleware(['admin'])->group(function () {
     Route::delete('/admin/unit', 'UnitController@delete');
     Route::put('/admin/unit', 'UnitController@active');
 
+    Route::put('/admin/update_about_page', 'AdminController@update_about_page');
+    Route::put('/admin/update_platform', 'AdminController@update_platform');
+
     Route::get('/admin/logout', function (Request $request) {
         $request->session()->forget('admin_on');
         
@@ -60,6 +63,8 @@ Route::get('/thanks', 'HomeController@thanks');
 Route::get('/buscar', 'HomeController@find');
 Route::get('/sobre', 'HomeController@about');
 Route::get('/doacoes', 'HomeController@donates');
+Route::post('/unit', 'UnitController@client_create');
+
 
 Route::get('/email', function (Request $resource) {
 
