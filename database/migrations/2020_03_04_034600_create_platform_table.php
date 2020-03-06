@@ -21,6 +21,7 @@ class CreatePlatformTable extends Migration
             $table->string('SMTP_USER_SERVER', 64)->nullable();
             $table->string('SMTP_PASS_SERVER', 64)->nullable();
             $table->string('SMTP_PORT_SERVER', 64)->nullable();
+            $table->string('MAIL_ENCRYPTION', 64)->nullable();
             $table->string('SMTP_FROM', 64)->nullable();
             $table->timestamps();
         });
