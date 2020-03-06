@@ -81,12 +81,49 @@ class AdminController extends Controller
 
     public function update_about_page(Request $request)
     {
-        # code...
+        $request->validate([
+            'about_title' => 'required',
+            'about_text' => 'required',
+        ]);
+
+        $AboutPage = AboutPage::first();
+        $AboutPage->title = $request->input('about_title');
+        $AboutPage->large_text = $request->input('about_text');
+
+        $AboutPage->save();
+
+        return redirect('/admin/settings')->with('success', "Pagina 'sobre' atualizado com sucesso");
+
     }
 
     public function update_platform(Request $request)
     {
-        # code...
+        $request->validate([
+            'embed' => 'required',
+            'platform_name' => 'required',
+            'smtp_server' => 'required',
+            'smtp_user_server' => 'required',
+            'smtp_pass_server' => 'required',
+            'smtp_port_server' => 'required',
+            'smtp_from' => 'required',
+            'mail_encryption' => 'required'
+        ]);
+
+        $platform = Platform::first();
+        $platform->app_name = $request->input('platform_name');
+        $platform->iframe_youtube = $request->input('embed');
+        
+        $platform->SMTP_SERVER = $request->input('smtp_server');
+        $platform->SMTP_USER_SERVER = $request->input('smtp_user_server');
+        $platform->SMTP_PASS_SERVER = $request->input('smtp_pass_server');
+        $platform->SMTP_PORT_SERVER = $request->input('smtp_port_server');
+        $platform->SMTP_FROM = $request->input('smtp_from');
+        $platform->MAIL_ENCRYPTION = $request->input('mail_encryption');
+
+        $platform->save();
+
+        return redirect('/admin/settings')->with('success', 'Plataforma atualizado com sucesso');
+
     }
 
     public function settings(Request $request)

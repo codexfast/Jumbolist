@@ -1,6 +1,6 @@
 @extends('app');
 
-@section('title', 'Dashboard - Jumbolist')
+@section('title', 'Dashboard -')
 
 @section('content')
 

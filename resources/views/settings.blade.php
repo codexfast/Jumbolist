@@ -70,7 +70,7 @@
         <div class="card mb-4">
             <div class="card-header"><i class="fas fa-address-card mr-1"></i>Pagina Sobre</div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="{{url('/admin/update_about_page')}}" method="POST">
                     @csrf
                     <input type="hidden" name="_method" value="PUT">
 
@@ -81,7 +81,7 @@
 
                     <div class="form-group">
                         <label for="about_text">Texto</label>
-                        <textarea class="form-control" id="about_text" name="about_text" required>{{$about_text}}</textarea>
+                        <textarea class="form-control" id="about_text" name="about_text" rows="22" required>{{$about_text}}</textarea>
                       </div>
                       <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
@@ -93,7 +93,7 @@
         <div class="card mb-4">
             <div class="card-header"><i class="fas fa-address-card mr-1"></i>Plataforma</div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="{{url('/admin/update_platform')}}" method="POST">
                     @csrf
                     <input type="hidden" name="_method" value="PUT">
 
@@ -127,6 +127,11 @@
                     <div class="form-group">
                         <label for="smtp_port_server">SMTP PORT SERVER</label>
                         <input type="text" class="form-control" id="smtp_port_server"  name="smtp_port_server" required value="{{$platform->SMTP_PORT_SERVER}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mail_encryption">SMTP ENCRYPTION SERVER</label>
+                        <input type="text" class="form-control" id="mail_encryption"  name="mail_encryption" required value="{{$platform->MAIL_ENCRYPTION}}">
                     </div>
 
                     <div class="form-group">
