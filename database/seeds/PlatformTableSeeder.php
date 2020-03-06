@@ -21,6 +21,7 @@ class PlatformTableSeeder extends Seeder
             'SMTP_PASS_SERVER' => null,
             'SMTP_PORT_SERVER' => null,
             'SMTP_FROM' => null,
+            'MAIL_ENCRYPTION' => null
         ]);
     }
 }
