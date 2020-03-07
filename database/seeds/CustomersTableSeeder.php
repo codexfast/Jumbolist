@@ -14,7 +14,8 @@ class CustomersTableSeeder extends Seeder
     {
         Customers::create([
             'email' => 'customer@email.com',
-            'city' => 'São Paulo'
+            'city' => 'São Paulo',
+            'state' => 'São Paulo'
         ]);
     }
 }

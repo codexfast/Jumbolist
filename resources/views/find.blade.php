@@ -1,13 +1,13 @@
 @extends('index')
 
-@section('title', 'Buscar - Lista de Jumbos Online')
+@section('title', 'Buscar')
 
 @section('content')
 <div class="container">
   @if (session('success'))
 
   <div class="alert alert-success">
-      {{session('success')}}
+    {{session('success')}}
   </div>
   @endif
 
@@ -173,5 +173,65 @@
         </div>
     
       </div>
+
+      {{-- Modal --}}
+      <!-- Button trigger modal -->
+
+      <hr>
+    
+      <h4 class="mb-3">Receber novidades</h4>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Registrar e-mail
+      </button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form action="/noty-user" method="POST">
+        @csrf
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Registrar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-light" role="alert">
+          Ao se registrar as atualizações ou adições de listas de jumbo serão notificadas no E-mail informado.
+
+        </div>
+        <div class="input-group flex-nowrap mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"> <i class="fas fa-envelope"></i> </span>
+          </div>
+          <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping" required name="email">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="notySelectState"> <i class="fas fa-city"></i> </label>
+          </div>
+          <select class="custom-select" id="notySelectState" name="notySelectState">
+            <option selected>Estado...</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="notySelectCity"> <i class="fas fa-map"></i> </label>
+          </div>
+          <select class="custom-select" id="notySelectCity" name="notySelectCity">
+            <option selected>Cidade...</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+      {{-- End Modal --}}
 </div>
 @endsection

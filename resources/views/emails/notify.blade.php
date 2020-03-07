@@ -1,8 +1,8 @@
 @component('mail::message')
 
-# {{$unit}} registrada
+# Nova registrada
 
-A unidade **{{$unit}}** foi registrada na cidade {{$city}}-{{$initials}},
+Uma nova unidade foi registrada na cidade {{$city}}-{{$initials}},
 cheque agora clicando no botão abaixo.
 
 @component('mail::button', ['url' => $url])

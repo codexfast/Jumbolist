@@ -11,7 +11,9 @@
 |
 */
 
+use App\Customers;
 use App\Mail\NotifyCustomer;
+use App\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
@@ -53,6 +55,22 @@ Route::middleware(['admin'])->group(function () {
 
         }
     });
+
+    Route::get('/admin/notify-now', function (Request $response) {
+        $all_pendent = Notify::where('pendent', true)->get();
+
+        foreach($all_pendent as $pendent)
+        {
+            $customer = Customers::where('id', $pendent->customer_id)->get()->first();
+
+            Mail::to($customer->email)->send(new NotifyCustomer($customer->city, $customer->state));
+
+            $pendent->pendent = false;
+            $pendent->save();
+        }
+
+        return redirect('/admin/settings')->with('success', 'Operação efetuada!');
+    });
 });
 
 Route::get('/login', 'LoginController@index');
@@ -64,12 +82,4 @@ Route::get('/buscar', 'HomeController@find');
 Route::get('/sobre', 'HomeController@about');
 Route::get('/doacoes', 'HomeController@donates');
 Route::post('/unit', 'UnitController@client_create');
-
-
-Route::get('/email', function (Request $resource) {
-
-    Mail::to('codexfast@gmail.com')->send(new NotifyCustomer('Penitenciária de Pimhuí', 'Pimhuí', 'MG'));
-
-    return new NotifyCustomer('Penitenciária de Pimhuí', 'Pimhuí', 'MG');
-});
-
+Route::post('/noty-user', 'HomeController@noty_user');

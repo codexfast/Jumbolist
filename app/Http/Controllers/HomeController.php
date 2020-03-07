@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Unit;
 use App\Platform;
 use App\AboutPage;
+use App\Customers;
 use App\Metrics;
+use App\Notify;
 
 class HomeController extends Controller
 {
@@ -37,7 +39,7 @@ class HomeController extends Controller
     public function find(Request $request)
     {
         return view('find', [
-            'states_cities_with_unit' => json_encode(Unit::all()),
+            'states_cities_with_unit' => json_encode(Unit::where('pendent', false)->get()),
             'states_cities' => Storage::get('estados-cidades.json')
         ]);
     }
@@ -50,5 +52,26 @@ class HomeController extends Controller
     public function thanks()
     {
         return view('thanks');
+    }
+
+    public function noty_user(Request $request)
+    {
+
+        $request->validate([
+            'email' => 'required|email',
+            'notySelectState' => 'required',
+            'notySelectCity' => 'required',
+        ]);
+
+        $email = $request->input('email');
+
+        Customers::create([
+            'email' => $email,
+            'state' => $request->input('notySelectState'),
+            'city' => $request->input('notySelectCity'),
+        ]);
+    
+
+        return redirect('/buscar')->with('success', "${email} casdatrado ocm sucesso");
     }
 }

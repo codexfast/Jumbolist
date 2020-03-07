@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Customers;
+use App\Notify;
 use Illuminate\Http\Request;
 use App\Unit;
 
@@ -34,7 +36,17 @@ class UnitController extends Controller
             'list' => $file,
             'pendent' => false
         ]);
-    
+
+        $customers = Customers::where('city', $city)->where('state', $state)->get();
+
+        foreach($customers as $customer)
+        {
+            Notify::create([
+                'customer_id' => $customer->id,
+                'pendent' => true,
+            ]);
+        }
+
         return redirect('/admin')->with('success', 'Unidade criada!');
     }
 
@@ -59,6 +71,16 @@ class UnitController extends Controller
         $unit->pendent = false;
 
         $unit->save();
+
+        $customers = Customers::where('city', $unit->city)->where('state', $unit->initials)->get();
+
+        foreach($customers as $customer)
+        {
+            Notify::create([
+                'customer_id' => $customer->id,
+                'pendent' => true,
+            ]);
+        }
 
         return redirect('/admin')->with('success', 'Aceito com sucesso!');
 

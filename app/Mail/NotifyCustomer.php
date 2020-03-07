@@ -19,14 +19,13 @@ class NotifyCustomer extends Mailable
      * @return void
      */
 
-    public $unit;
+
     public $city;
     public $initials;
     public $url;
 
-    public function __construct($unit, $city, $initials)
+    public function __construct($city, $initials)
     {
-        $this->unit = $unit;
         $this->city = $city;
         $this->initials = $initials;
         $this->url = url('/buscar');
@@ -40,7 +39,7 @@ class NotifyCustomer extends Mailable
     public function build()
     {
         
-        return $this->from('codexfast@gmail.com')->markdown('emails.notify', [
+        return $this->from(Platform::first()->SMTP_FROM)->markdown('emails.notify', [
             'app_name' => Platform::first()->app_name,
         ]);
     }

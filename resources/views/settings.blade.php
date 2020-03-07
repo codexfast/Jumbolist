@@ -239,9 +239,13 @@
             </div>
         </div>        
     </div>
-    <div class="col">
+    <div class="col-sm-2">
         <a class="btn btn-danger" href="{{url('/update/states-cities')}}"
             ><div class="sb-nav-link-icon"><i class="fas fa-retweet"></i></div>Atualizar Cidades e Estados </a>
+    </div>
+    <div class="col-sm-2">
+        <a class="btn btn-warning text-white" href="{{url('/admin/notify-now')}}"
+            ><div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>Forçar Notificação de E-mails</a>
     </div>
 </div>
 @endsection

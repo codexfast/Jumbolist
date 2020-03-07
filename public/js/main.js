@@ -14,6 +14,7 @@ window.onload = () => {
 
     states_cities.estados.forEach( state => {
         $('#all_states').append(new Option(state.nome, state.sigla))
+        $('#notySelectState').append(new Option(state.nome, state.sigla))
 
     });
 
@@ -27,6 +28,20 @@ window.onload = () => {
         cities[0].cidades.forEach( city => {
             
             $('#all_cities').append(new Option(city, city))
+
+        });
+    });
+
+    $('#notySelectState').change(e => {
+        const sigla = $('#notySelectState').children("option:selected").val();
+        const cities = states_cities.estados.filter(states => states.sigla == sigla);
+
+
+        $('#notySelectCity').empty();
+
+        cities[0].cidades.forEach( city => {
+            
+            $('#notySelectCity').append(new Option(city, city))
 
         });
     });
