@@ -22,7 +22,7 @@
 </div>
 {{-- end carousel --}}
 <div class="container">
-    <div class="py-5 text-center">
+    <div class=" text-center">
       <img class="d-block mx-auto mb-4" src="{{url('/logo.png')}}" alt="" width="72" height="72">
       <h2>Jumbolist</h2>
       <p class="lead">Dificuldades em obter lista de materiais para unidades prisionais? busque aqui na maior plataforma de lista de jumbo, você tambem pode ajudar mandado listas ou fazendo doações</p>
