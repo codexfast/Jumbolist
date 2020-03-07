@@ -79,6 +79,7 @@ Route::post('/login', 'LoginController@check');
 Route::get('/', 'HomeController@index');
 Route::get('/thanks', 'HomeController@thanks');
 Route::get('/buscar', 'HomeController@find');
+Route::get('/contribuir', 'HomeController@help');
 Route::get('/sobre', 'HomeController@about');
 Route::get('/doacoes', 'HomeController@donates');
 Route::post('/unit', 'UnitController@client_create');

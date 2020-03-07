@@ -70,6 +70,14 @@
             @endif
           </li>
           <li class="nav-item">
+            @if ($uri == 'contribuir')
+            <a class="nav-link active" href="{{url('/contribuir')}}">Contribuir</a>
+            @else
+            <a class="nav-link" href="{{url('/contribuir')}}">Contribuir</a>
+
+            @endif
+          </li>
+          <li class="nav-item">
             @if ($uri == 'doacoes')
             <a class="nav-link active" href="{{url('/doacoes')}}">Doações</a>
             @else

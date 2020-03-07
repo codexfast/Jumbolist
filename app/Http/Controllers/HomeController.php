@@ -44,6 +44,14 @@ class HomeController extends Controller
         ]);
     }
 
+    public function help(Request $request)
+    {
+        return view('help', [
+            'states_cities_with_unit' => json_encode(Unit::where('pendent', false)->get()),
+            'states_cities' => Storage::get('estados-cidades.json')
+        ]);
+    }
+
     public function donates()
     {
         return view('donates');
