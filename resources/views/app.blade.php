@@ -46,6 +46,10 @@
                                 ><div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                                 Settings</a>
 
+                            <a class="nav-link" href="{{url('/admin/banners')}}"
+                            ><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
+                            Banners</a>
+
                             <a class="nav-link" href="{{url('')}}" target="_blank"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-rss-square"></i></div>
                                 Principal

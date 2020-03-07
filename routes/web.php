@@ -35,6 +35,11 @@ Route::middleware(['admin'])->group(function () {
     Route::put('/admin/update_about_page', 'AdminController@update_about_page');
     Route::put('/admin/update_platform', 'AdminController@update_platform');
 
+    Route::get('/admin/banners', 'AdminController@banners');
+    Route::post('/admin/add-banner', 'AdminController@add_banner');
+    Route::get('/admin/remove-banner/{id}', 'AdminController@remove_banner')->where(['id'=> '[0-9]+']);
+
+
     Route::get('/admin/logout', function (Request $request) {
         $request->session()->forget('admin_on');
         

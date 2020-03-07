@@ -9,7 +9,6 @@ use App\Platform;
 use App\AboutPage;
 use App\Customers;
 use App\Metrics;
-use App\Notify;
 
 class HomeController extends Controller
 {

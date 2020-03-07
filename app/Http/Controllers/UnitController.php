@@ -56,7 +56,11 @@ class UnitController extends Controller
             'id' => 'required'
         ]);
 
-        Unit::where('id', $request->input('id'))->delete();
+        $unit = Unit::where('id', $request->input('id'))->get()->first();
+        unlink(public_path('files/'. $unit->list));
+        $unit->delete();
+
+        // Unit::where('id', $request->input('id'))->delete();
 
         return redirect('/admin')->with('success', 'Apagado com sucesso!');
     }

@@ -11,6 +11,7 @@ use App\Admin;
 use App\Unit;
 use App\Platform;
 use App\AboutPage;
+use App\Banner;
 use App\Metrics;
 
 class AdminController extends Controller
@@ -124,6 +125,48 @@ class AdminController extends Controller
 
         return redirect('/admin/settings')->with('success', 'Plataforma atualizado com sucesso');
 
+    }
+
+    public function banners()
+    {
+        return view('banners', [
+            'banners' => Banner::all(),
+            'admin' => Admin::first(),
+
+        ]);
+    }
+
+    public function add_banner(Request $request)
+    {
+        $request->validate([
+            'banner' => 'required|mimes:jpg,png,jpeg|max:10000'
+        ]);
+
+        $file = null;
+
+        if (!is_null($request->banner))
+        {
+            $file = time().'.'.$request->banner->extension(); 
+            $request->banner->move(public_path('banners'), $file);
+        }
+
+        Banner::create([
+            'banner' => $file
+        ]);
+
+        return redirect('/admin/banners')->with('success', 'Banner adicionado!');
+    }
+
+    public function remove_banner(Request $request)
+    {
+        $id = $request->id;
+
+        $banner = Banner::where('id', $id)->get()->first();
+        unlink(public_path('banners/'. $banner->banner));
+
+        $banner->delete();
+        
+        return redirect('/admin/banners')->with('warning', 'Banner deletado!');
     }
 
     public function settings(Request $request)

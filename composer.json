@@ -1,10 +1,11 @@
 {
-    "name": "laravel/laravel",
+    "name": "jumbolist/jumbolist",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "jumbolist"
     ],
     "license": "MIT",
     "require": {

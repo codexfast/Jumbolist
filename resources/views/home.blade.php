@@ -2,8 +2,25 @@
 
 @section('title', 'Início')
 
-
 @section('content')
+{{-- carousel --}}
+<div class="container py-2">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner">
+  @foreach ($banners as $banner)
+
+    @if ($loop->index == 0)
+    <div class="carousel-item active">
+    @else
+    <div class="carousel-item">    
+    @endif
+      <img src="{{url('/banners/'.$banner->banner)}}" class="d-block w-100" alt="{{$banner->banner}}">
+  </div>      
+  @endforeach
+</div>
+</div>
+</div>
+{{-- end carousel --}}
 <div class="container">
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="{{url('/logo.png')}}" alt="" width="72" height="72">
