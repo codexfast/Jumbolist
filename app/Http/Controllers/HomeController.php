@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
 
     function __construct () {
+        
         $metric = Metrics::first();
         $metric->views += 1;
         $metric->save();
@@ -37,6 +38,7 @@ class HomeController extends Controller
 
     public function find(Request $request)
     {
+        
         return view('find', [
             'states_cities_with_unit' => json_encode(Unit::where('pendent', false)->get()),
             'states_cities' => Storage::get('estados-cidades.json')
@@ -71,14 +73,21 @@ class HomeController extends Controller
         ]);
 
         $email = $request->input('email');
+        $state = $request->input('notySelectState');
+        $city = $request->input('notySelectCity');
 
-        Customers::create([
-            'email' => $email,
-            'state' => $request->input('notySelectState'),
-            'city' => $request->input('notySelectCity'),
-        ]);
+
+        if (!Customers::where('email', $email)->where('state', $state)->where('city', $city)->exists())
+        {
+            Customers::create([
+                'email' => $request->input('email'),
+                'state' => $state,
+                'city' => $city,
+                'phone' => $request->input('phone')
+            ]);
+        }
     
 
-        return redirect('/buscar')->with('success', "${email} casdatrado ocm sucesso");
+        return redirect('/buscar')->with('success', "${email} casdatrado com sucesso");
     }
 }

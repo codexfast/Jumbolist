@@ -143,6 +143,12 @@
           </div>
           <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping" required name="email">
         </div>
+        <div class="input-group flex-nowrap mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"> <i class="fas fa-phone-square-alt"></i> </span>
+          </div>
+          <input type="tel" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="addon-wrapping" required name="phone">
+        </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="notySelectState"> <i class="fas fa-city"></i> </label>

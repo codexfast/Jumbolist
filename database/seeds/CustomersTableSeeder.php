@@ -15,7 +15,8 @@ class CustomersTableSeeder extends Seeder
         Customers::create([
             'email' => 'customer@email.com',
             'city' => 'São Paulo',
-            'state' => 'São Paulo'
+            'state' => 'São Paulo',
+            'phone' => '+551211332211'
         ]);
     }
 }

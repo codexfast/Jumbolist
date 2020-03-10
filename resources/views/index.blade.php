@@ -42,8 +42,8 @@
     </style>
 
   </head>
-  <body class="bg-light pt-5 mt-5">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 fixed-top">
+  <body class="bg-light pt-5 mt-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
         <a class="navbar-brand" href="{{url('')}}">
           <img src="{{url('/favicon.ico')}}"  width="16" height="16">
@@ -63,17 +63,17 @@
           </li>
           <li class="nav-item">
             @if ($uri == 'buscar')
-            <a class="nav-link active" href="{{url('/buscar')}}">Buscar</a>
+            <a class="nav-link active" href="{{url('/buscar')}}">Unidade Prisional</a>
             @else
-            <a class="nav-link" href="{{url('/buscar')}}">Buscar</a>
+            <a class="nav-link" href="{{url('/buscar')}}">Unidade Prisional</a>
 
             @endif
           </li>
           <li class="nav-item">
             @if ($uri == 'contribuir')
-            <a class="nav-link active" href="{{url('/contribuir')}}">Contribuir</a>
+            <a class="nav-link active" href="{{url('/contribuir')}}">Atualizar Dados</a>
             @else
-            <a class="nav-link" href="{{url('/contribuir')}}">Contribuir</a>
+            <a class="nav-link" href="{{url('/contribuir')}}">Atualizar Dados</a>
 
             @endif
           </li>
@@ -87,9 +87,9 @@
           </li>
           <li class="nav-item">
             @if ($uri == 'sobre')
-            <a class="nav-link active" href="{{url('/sobre')}}">Sobre</a>
+            <a class="nav-link active" href="{{url('/sobre')}}">Contato</a>
             @else
-            <a class="nav-link" href="{{url('/sobre')}}">Sobre</a>
+            <a class="nav-link" href="{{url('/sobre')}}">Contato</a>
             @endif
           </li>
         </ul>
@@ -98,7 +98,7 @@
     </nav>
 
     @yield('content')
-    <footer class="my-4 pt-4 text-muted text-center text-small">
+    <footer class="my-2 pt-4 text-muted text-center text-small">
       <p class="mb-1">&copy; <?= date("Y"); ?> {{$app_name}} - <a href="mailto:{{$email}}" class="text-muted" target="_top">{{$email}}</a></p>
     </footer>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>

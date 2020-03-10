@@ -14,9 +14,11 @@
 use App\Customers;
 use App\Mail\NotifyCustomer;
 use App\Notify;
+use App\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
+
 
 
 Route::middleware(['admin'])->group(function () {
@@ -89,3 +91,10 @@ Route::get('/sobre', 'HomeController@about');
 Route::get('/doacoes', 'HomeController@donates');
 Route::post('/unit', 'UnitController@client_create');
 Route::post('/noty-user', 'HomeController@noty_user');
+Route::get('/iframe', function (Request $request) {
+    return view('iframe', [
+        'states_cities_with_unit' => json_encode(Unit::where('pendent', false)->get()),
+        'states_cities' => Storage::get('estados-cidades.json')
+    ]);
+    
+});
