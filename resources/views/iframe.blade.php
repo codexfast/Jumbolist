@@ -67,7 +67,7 @@
     </div>
 @endif
     <div class="row">
-        <div class="col-md-8 order-md-1">
+        <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Buscar lista</h4>
           <form>
             <div class="row">
@@ -133,21 +133,7 @@
     
           
         </div>
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Faça uma Doação</span>
-            <i class="fas fa-star" style="color: #fbc52d;"></i>
-          </h4>
-          <ul class="list-group mb-3">
-            @foreach ($donates as $donate)
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <a class="btn btn-dark text-light" href="{{$donate->link}}">Doar</a>
-              <span class="text-muted">R$ {{ str_replace('.', ',', $donate->amount) }}</span>
-            </li>
-          @endforeach
-            
-          </ul>
-        </div>
+
     
       </div>
 
@@ -155,11 +141,11 @@
       <!-- Button trigger modal -->
 
       <hr>
-    
-      <h4 class="mb-3">Receber novidades</h4>
+      <div class="d-flex justify-content-center">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Registrar e-mail
+        Receber Atualizações
       </button>
+      </div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

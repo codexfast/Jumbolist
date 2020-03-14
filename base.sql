@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Mar-2020 às 06:03
+-- Generation Time: 12-Mar-2020 às 19:18
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -41,7 +41,7 @@ CREATE TABLE `about_page` (
 --
 
 INSERT INTO `about_page` (`id`, `title`, `large_text`, `created_at`, `updated_at`) VALUES
-(1, 'Where does it come from?', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br/><br/>\n            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', '2020-03-08 08:03:21', '2020-03-08 08:03:21');
+(1, 'Where does it come from?', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.<br/><br/>\n            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', '2020-03-10 05:48:02', '2020-03-10 05:48:02');
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@email.com', '$2y$10$q8qk6qUYbYPGLtEhhKoui.ytkmj8ZrFJ4qzWEcloIUgZGYSRcoZwi', '2020-03-08 08:03:21', '2020-03-08 08:03:21');
+(1, 'Admin', 'admin@email.com', '$2y$10$tLKDtae11MnoF1fZjKv6Z.TLxTru03X.S9V4XXrMUvU0imDRF.oP6', '2020-03-10 05:48:02', '2020-03-10 05:48:02');
 
 -- --------------------------------------------------------
 
@@ -87,6 +87,7 @@ CREATE TABLE `banner` (
 CREATE TABLE `customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -112,7 +113,7 @@ CREATE TABLE `donate` (
 --
 
 INSERT INTO `donate` (`id`, `amount`, `link`, `created_at`, `updated_at`) VALUES
-(1, '10.00', 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=226082136-f48d5809-6170-4944-9c4a-5fafba9e3a03', '2020-03-08 08:03:21', '2020-03-08 08:03:21');
+(1, '10.00', 'https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=226082136-f48d5809-6170-4944-9c4a-5fafba9e3a03', '2020-03-10 05:48:02', '2020-03-10 05:48:02');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,7 @@ CREATE TABLE `metrics` (
 --
 
 INSERT INTO `metrics` (`id`, `views`, `created_at`, `updated_at`) VALUES
-(1, 0, '2020-03-08 08:03:21', '2020-03-08 08:03:21');
+(1, 0, '2020-03-10 05:48:02', '2020-03-12 21:02:08');
 
 -- --------------------------------------------------------
 
@@ -200,7 +201,7 @@ CREATE TABLE `platform` (
 --
 
 INSERT INTO `platform` (`id`, `iframe_youtube`, `app_name`, `SMTP_SERVER`, `SMTP_USER_SERVER`, `SMTP_PASS_SERVER`, `SMTP_PORT_SERVER`, `MAIL_ENCRYPTION`, `SMTP_FROM`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.youtube.com/embed/FWH0crWfUlk?controls=0', 'Jumbolist', 'smtp.gmail.com', 'email@gmail.com', '1234', '587', 'tls', 'email@gmail.com', '2020-03-08 08:03:21', '2020-03-08 08:03:21');
+(1, 'https://www.youtube.com/embed/FWH0crWfUlk?controls=0', 'Jumbolist', 'smtp.gmail.com', 'codexfast@gmail.com', 'wiezkemogtixisiq', '587', 'tls', 'codexfast@gmail.com', '2020-03-10 05:48:02', '2020-03-11 03:57:16');
 
 -- --------------------------------------------------------
 
@@ -309,7 +310,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `donate`
@@ -345,7 +346,7 @@ ALTER TABLE `platform`
 -- AUTO_INCREMENT for table `units`
 --
 ALTER TABLE `units`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
