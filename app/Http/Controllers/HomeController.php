@@ -77,15 +77,15 @@ class HomeController extends Controller
         $city = $request->input('notySelectCity');
 
 
-        if (!Customers::where('email', $email)->where('state', $state)->where('city', $city)->exists())
-        {
+        // if (!Customers::where('email', $email)->where('state', $state)->where('city', $city)->exists())
+        // {
             Customers::create([
                 'email' => $request->input('email'),
                 'state' => $state,
                 'city' => $city,
                 'phone' => $request->input('phone')
             ]);
-        }
+        // }
     
 
         return redirect('/buscar')->with('success', "${email} casdatrado com sucesso");
