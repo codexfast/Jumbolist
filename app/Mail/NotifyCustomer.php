@@ -28,7 +28,7 @@ class NotifyCustomer extends Mailable
     {
         $this->city = $city;
         $this->initials = $initials;
-        $this->url = url('/buscar');
+        $this->url = secure_url('/buscar');
     }
 
     /**

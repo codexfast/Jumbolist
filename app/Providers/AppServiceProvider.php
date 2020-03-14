@@ -33,20 +33,20 @@ class AppServiceProvider extends ServiceProvider
     {
         // Platform::first()->
 
-        $p= Platform::first();
-
-        config([
-            'mail.host' => $p->SMTP_SERVER,
-            'mail.port' => $p->SMTP_PORT_SERVER,
-            'mail.username' => $p->SMTP_USER_SERVER,
-            'mail.password' => $p->SMTP_PASS_SERVER,
-            'mail.encryption' => $p->MAIL_ENCRYPTION,
-            'mail.from.address' => $p->SMTP_FROM,
-            'mail.from.name' => $p->app_name,
-            'app.name' => $p->app_name
-        ]);
-
+        
         try {
+            $p= Platform::first();
+    
+            config([
+                'mail.host' => $p->SMTP_SERVER,
+                'mail.port' => $p->SMTP_PORT_SERVER,
+                'mail.username' => $p->SMTP_USER_SERVER,
+                'mail.password' => $p->SMTP_PASS_SERVER,
+                'mail.encryption' => $p->MAIL_ENCRYPTION,
+                'mail.from.address' => $p->SMTP_FROM,
+                'mail.from.name' => $p->app_name,
+                'app.name' => $p->app_name
+            ]);
 
             View::share([
                 'uri' => request_path(),
