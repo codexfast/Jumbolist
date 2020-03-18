@@ -209,6 +209,7 @@
                                             
                                             @csrf
                                             <input hidden value="{{$unit->id}}" name="id">
+                                            <input hidden type="text" name="unit_name" class="unit_name">
                                             <button class="btn btn-flat" type="submit">
                                                 <i class="fas fa-check-circle text-success"></i>
                                                 Aceitar
@@ -224,8 +225,7 @@
                                         @endisset
                                     </td>
                                     <td>
-                                        {{ $unit->unit }}
-                                        
+                                    <input type="text" value="{{ $unit->unit }}" class="form-control unit_name" >
                                     </td>
                                     <td>
                                         {{ $unit->city }}

@@ -3,6 +3,15 @@ window.onload = () => {
         $('#selectState').append(new Option(state.nome, state.sigla))
     });
 
+    try {
+        clone_input = document.querySelectorAll('.unit_name');
+        clone_input[1].onchange = () => {
+            clone_input[0].value = clone_input[1].value;
+        }
+    } catch (error) {
+        console.error("Clone input fail");
+    }
+
     $('#selectState').change(e => {
         let sigla = $('#selectState').children("option:selected").val();
 

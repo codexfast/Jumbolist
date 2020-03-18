@@ -68,11 +68,13 @@ class UnitController extends Controller
     public function active(Request $request)
     {
         $request->validate([
-            'id' => 'required'
+            'id' => 'required',
+            'unit_name' => 'required'
         ]);
 
         $unit = Unit::where('id', $request->input('id'))->get()->first();
         $unit->pendent = false;
+        $unit->unit = $request->input('unit_name');
 
         $unit->save();
 
