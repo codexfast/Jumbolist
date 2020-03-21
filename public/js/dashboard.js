@@ -9,7 +9,7 @@ window.onload = () => {
             clone_input[0].value = clone_input[1].value;
         }
     } catch (error) {
-        console.error("Clone input fail");
+        console.warn("Clone input fail");
     }
 
     $('#selectState').change(e => {

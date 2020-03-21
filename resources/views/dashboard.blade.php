@@ -119,8 +119,6 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            
-                     
                             @foreach ($units as $unit)
                                 <tr>
                                     <td>
