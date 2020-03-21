@@ -9,6 +9,6 @@ cheque agora clicando no botão abaixo.
 Checar
 @endcomponent
 
-Obrigado,<br>
+<br>
 {{ $app_name }}
 @endcomponent
