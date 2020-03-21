@@ -29,7 +29,7 @@
 
   
     <div class="embed-responsive embed-responsive-16by9 mx-auto m-2" style="max-width: 600px;">
-        <iframe  src="https://www.youtube.com/embed/FWH0crWfUlk?controls=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <iframe  src="{{$embed_youtube}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
     <div class="mt-3">
       <p class="lead text-center">Se a nossa plataforma foi util a você deixe seu like e realize uma doação para mante-la sempre online.</p>
