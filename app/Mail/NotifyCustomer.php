@@ -26,6 +26,7 @@ class NotifyCustomer extends Mailable
 
     public function __construct($city, $initials)
     {
+        date_default_timezone_set('America/Sao_Paulo');
         $this->city = $city;
         $this->initials = $initials;
         $this->url = secure_url('/buscar');
@@ -41,6 +42,6 @@ class NotifyCustomer extends Mailable
         
         return $this->from(Platform::first()->SMTP_FROM)->markdown('emails.notify', [
             'app_name' => Platform::first()->app_name,
-        ])->subject("{$this->city} - {$this->initials}");
+        ])->subject("{$this->city} - {$this->initials} ". date("H:i:s"));
     }
 }
