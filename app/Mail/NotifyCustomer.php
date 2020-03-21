@@ -41,6 +41,6 @@ class NotifyCustomer extends Mailable
         
         return $this->from(Platform::first()->SMTP_FROM)->markdown('emails.notify', [
             'app_name' => Platform::first()->app_name,
-        ]);
+        ])->subject("{$this->city} - {$this->initials}");
     }
 }
