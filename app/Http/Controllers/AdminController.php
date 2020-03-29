@@ -13,6 +13,7 @@ use App\Platform;
 use App\AboutPage;
 use App\Banner;
 use App\Metrics;
+use App\Customers;
 
 class AdminController extends Controller
 {
@@ -39,7 +40,14 @@ class AdminController extends Controller
             'request_length' => count($units_pendent),
             'units_pendent' => $units_pendent,
             'metric_view' => Metrics::first()->views
+        ]);
+    }
 
+    public function users(Request $request) 
+    {
+        return view('users', [
+            'admin' => Admin::first(),
+            'users' => Customers::all(),
         ]);
     }
 

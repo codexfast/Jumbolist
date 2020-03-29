@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Mail;
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', 'AdminController@index');
+    Route::get('/admin/users', 'AdminController@users');
     Route::get('/admin/settings', 'AdminController@settings');
     Route::put('/admin/password', 'AdminController@password');
     Route::put('/admin/profile', 'AdminController@profile');
