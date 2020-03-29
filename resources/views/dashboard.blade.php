@@ -207,7 +207,7 @@
                                             
                                             @csrf
                                             <input hidden value="{{$unit->id}}" name="id">
-                                            <input hidden type="text" name="unit_name" class="unit_name">
+                                            <input hidden type="text" name="unit_name" class="unit_name" value="{{$unit->unit}}">
                                             <button class="btn btn-flat" type="submit">
                                                 <i class="fas fa-check-circle text-success"></i>
                                                 Aceitar
