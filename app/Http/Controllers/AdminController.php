@@ -51,6 +51,15 @@ class AdminController extends Controller
         ]);
     }
 
+    public function remove_user(Request $request, $id)
+    {
+        $id = $request->id;
+
+        Customers::where('id', $id)->delete();
+
+        return redirect('/admin/users')->with('success', 'Usuário deletado com sucesso');
+    }
+
     public function profile(Request $request)
     {
         $request->validate([

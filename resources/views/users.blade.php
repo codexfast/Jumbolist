@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1 class="mt-4">Users</h1>
+<h1 class="mt-4">Usuários/Para notificar</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Users</li>
 </ol>
@@ -18,7 +18,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>E-mail</th>
+                                <th>Deletar</th>
+                                <th>E-mail</th>                                
                                 <th>Cidade</th>
                                 <th>Estado</th>
                                 <th>Telefone</th>
@@ -26,6 +27,7 @@
                         </thead>
                         <tfoot>
                             <tr>
+                                <th>Deletar</th>
                                 <th>E-mail</th>
                                 <th>Cidade</th>
                                 <th>Estado</th>
@@ -37,6 +39,15 @@
                      
                             @foreach ($users as $user)
                                 <tr>
+                                    <td>
+                                        <form action="{{url('/admin/users/'.$user->id.'/remove')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button class="btn btn-flat " type="submit">
+                                                <i class="fas fa-window-close text-danger"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->city}}</td>
                                     <td>{{$user->state}}</td>

@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Mail;
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/users', 'AdminController@users');
+    Route::delete('/admin/users/{id}/remove', 'AdminController@remove_user')->where(['id' => '[0-9]+']);;
     Route::get('/admin/settings', 'AdminController@settings');
     Route::put('/admin/password', 'AdminController@password');
     Route::put('/admin/profile', 'AdminController@profile');
