@@ -100,3 +100,12 @@ Route::get('/iframe', function (Request $request) {
     ]);
     
 });
+
+// Test
+
+Route::get("/test-grid", function (Request $request) {
+    return view('test.index',[
+        'states_cities_with_unit' => json_encode(Unit::where('pendent', false)->get()),
+        'states_cities' => Storage::get('estados-cidades.json')
+    ]);
+});
